@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/htorres09/ChatBot/issues"
   },
-  "homepage": "https://github.com/htorres09/ChatBot#readme"
+  "homepage": "https://github.com/htorres09/ChatBot#readme",
+  "dependencies": {
+    "xregexp": "4.0.0"
+  }
 }
