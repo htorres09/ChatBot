@@ -1,10 +1,10 @@
 const patternDict = [
     {
-        pattern: '\b(Hola|Hi|Hey)\b',
+        pattern: '\\b(Hola|Hi|Hey)\\b',
         intent: 'Saludo'
     },
     {
-        pattern: '\b(Adios|Bye|Gracias)\b',
+        pattern: '\\b(Adios|Bye|Gracias)\\b',
         intent: 'Terminar'
     },
     {
