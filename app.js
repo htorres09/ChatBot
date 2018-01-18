@@ -13,14 +13,19 @@ rl.setPrompt('> ');
 rl.prompt();
 rl.on('line', reply => {
     matcher(reply, data =>{
+        console.log(data);
         switch(data.intent){
             case 'Saludo':
-                console.log(`${reply}, mi nombre es TigreBot`);
+                console.log(`${data.entities.saludo}, mi nombre es TigreBot`);
+                rl.prompt();
+                break;
+            case 'Busqueda' :
+                console.log(`Buscare ${data.entities.titulo} de ${data.entities.autor} para ti`);
                 rl.prompt();
                 break;
             case 'Terminar' :
-                console.log(`¡${reply}, nos veremos luego!`);
-                rl.prompt();
+                console.log(`¡${data.entities.despedida}, nos veremos luego!`);
+                process.exit(0);
                 break;
             default:
                 console.log(`¿${reply}?, disculpa, aún estoy aprendiendo.`);

@@ -1,15 +1,16 @@
 const patternDict = [
     {
-        pattern: '\\b(Hola|Hi|Hey)\\b',
+        pattern: '\\b(?<saludo>Hola|Hi|Hey)\\b',
         intent: 'Saludo'
     },
     {
-        pattern: '\\b(Adios|Bye|Gracias)\\b',
+        pattern: '\\b(?<despedida>Adios|Bye|Gracias)\\b',
         intent: 'Terminar'
     },
     {
-        pattern: '',
-        intent: ''
+        pattern: '\\b(?<titulo>(.*))\\b',
+        intent: 'Busqueda',
+        parametro: 'titulo'
     }
 ];
 
