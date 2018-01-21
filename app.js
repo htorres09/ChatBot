@@ -13,14 +13,15 @@ rl.prompt();
 rl.on('line', reply => {
     matcher(reply, data =>{
         var i = 0;
-        //for(i in data.entities){ console.log(i, data.entities[i]); }
+        for(i in data.entities){ console.log(i, data.entities[i]); }
         switch(data.intent){
             case 'Saludo':
                 data.phrase(data.entities.saludo);
                 rl.prompt();
                 break;
             case 'Busqueda' :
-                console.log(data.entities[3]);
+                console.log(data.entities.titulo);
+                console.log(data.entities.author);
                 data.phrase(data.entities[3]);
                 rl.prompt();
                 break;
