@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/htorres09/ChatBot#readme",
   "dependencies": {
+    "colors": "1.1.2",
+    "moment": "2.20.1",
+    "restify": "6.3.4",
     "xregexp": "4.0.0"
   }
 }
