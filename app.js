@@ -5,14 +5,12 @@ const rl = ReadLine.createInterface({
     output: process.stdout,
     terminal: false
 });
-
 const matcher = require('./matcher');
 
 rl.setPrompt('> ');
 rl.prompt();
 rl.on('line', reply => {
     matcher(reply, data =>{
-        var i = 0;
         switch(data.intent){
             case 'Saludo':
                 data.phrase(data.entities.saludo);
