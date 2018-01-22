@@ -9,14 +9,20 @@ const patternDict = [
         }
     },
     {
-        pattern: '\\b(?<intro>Como)\\b',
+        pattern: '\\b(?<intro>como|qu. haces)\\b',
         intent: 'Introduccion',
         parametro: 'Null',
-        phrase: function (item) {
+        phrase: function () {
             console.log(`Soy un Bot, estoy programado para realizar busquedas simples`);
-            console.log(`Aún estoy aprendiendo a comprender el lenguaje humano, así que te pedire un poco de apoyo`);
-            console.log(`Para busar un libro por su titulo, escribelo entre comillas. Ej. "Titulo"`);
-            console.log(`Para busar un libro por un autor, escribelo entre <>. Ej. <Autor>`);
+            setTimeout(function(){
+                console.log(`Aún estoy aprendiendo a comprender el lenguaje humano, así que te pedire un poco de apoyo`);
+            }, 1000);
+            setTimeout(function(){
+                console.log(`Para busar un libro por su titulo, escribelo entre comillas. Ej. "Titulo"`);
+            }, 2000);
+            setTimeout(function(){
+                console.log(`Para busar un libro por un autor, escribelo entre <>. Ej. <Autor>`);
+            }, 3000);
         }
     },
     {

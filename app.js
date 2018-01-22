@@ -13,16 +13,17 @@ rl.prompt();
 rl.on('line', reply => {
     matcher(reply, data =>{
         var i = 0;
-        //for(i in data.entities){ console.log(i, data.entities[i]); }
         switch(data.intent){
             case 'Saludo':
                 data.phrase(data.entities.saludo);
                 rl.prompt();
                 break;
+            case 'Introduccion':
+                setTimeout(function () {
+                    rl.prompt();
+                }, 1050);
             case 'Busqueda' :
-                //console.log(data.entities[2]);
                 data.phrase(data.entities[2]);
-                rl.prompt();
                 break;
             case 'Terminar' :
                 data.phrase(data.entities.Terminar);
@@ -30,8 +31,12 @@ rl.on('line', reply => {
                 break;
             default:
                 console.log(`Disculpa, aún no aprendo el significado de ${reply}.`);
-                console.log("¡Pero pronto lo aprendere para poder ayudarte mejor!");
-                rl.prompt();
+                setTimeout(function (){
+                    console.log("¡Pero pronto lo aprendere para poder ayudarte mejor!");
+                }, 1000);
+                setTimeout(function () {
+                    rl.prompt();
+                }, 1050);
                 break;
         }
     })
