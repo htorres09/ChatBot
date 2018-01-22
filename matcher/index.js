@@ -21,7 +21,7 @@ let matchPattern = (str, cb) => {
         }
     });
 
-    console.log(getResult);
+    //console.log(getResult);
 
     if(getResult) {
         return cb({
