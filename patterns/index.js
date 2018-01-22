@@ -4,8 +4,19 @@ const patternDict = [
         intent: 'Saludo',
         parametro: 'Null',
         phrase: function (item) {
-            console.log(`${item}, mi nombre es TigreBot`);
+            console.log(`${item}`.capitalize() + `, mi nombre es TigreBot`);
             console.log("Estoy aquí para ayudarte a encontrar libros en tu biblioteca.");
+        }
+    },
+    {
+        pattern: '\\b(?<intro>Como)\\b',
+        intent: 'Introduccion',
+        parametro: 'Null',
+        phrase: function (item) {
+            console.log(`Soy un Bot, estoy programado para realizar busquedas simples`);
+            console.log(`Aún estoy aprendiendo a comprender el lenguaje humano, así que te pedire un poco de apoyo`);
+            console.log(`Para busar un libro por su titulo, escribelo entre comillas. Ej. "Titulo"`);
+            console.log(`Para busar un libro por un autor, escribelo entre <>. Ej. <Autor>`);
         }
     },
     {
@@ -13,7 +24,8 @@ const patternDict = [
         intent: 'Terminar',
         parametro: 'Null',
         phrase: function (item) {
-            console.log(`Espero haberte ayudado, ¡${item}, nos veremos luego!`);
+            console.log(`Espero haberte ayudado.`)
+            console.log(`¡` + `${item}`.capitalize() + `, nos veremos luego!`);
         }
     },
     {
@@ -21,7 +33,7 @@ const patternDict = [
         intent: 'Busqueda',
         parametro: 'titulo',
         phrase: function (item) {
-            console.log(`Buscare ${item}, para ti. Dame un momento`);
+            console.log(`Buscare ` + `${item}`.capitalize() + `, para ti. Dame un momento`);
         }
     },
     {
@@ -29,7 +41,7 @@ const patternDict = [
         intent: 'Busqueda',
         parametro: 'titulo',
         phrase: function (item) {
-            console.log(`Buscare ${item}, para ti. Dame un momento`);
+            console.log(`Buscare ` + `${item}`.capitalize() + `, para ti. Dame un momento`);
         }
     },
     {
@@ -37,18 +49,22 @@ const patternDict = [
         intent: 'Busqueda',
         parametro: 'autor',
         phrase: function (item) {
-            console.log(`Buscare libros de ${item}, para ti. Dame un momento`);
+            console.log(`Buscare libros de ` + `${item}`.capitalize() + `, para ti. Dame un momento`);
         }
     },
     {
-        pattern: '\\b(enc(.*)ntr(.?)r?)|(busc(.)?(.))\\b\\s\\b(?<titulo>\"(.*)\")',
-        intent: 'Busqueda',
-        parametro: 'titulo',
+        pattern: '',
+        intent: 'None',
+        parametro: 'Null',
         phrase: function (item) {
             console.log(`Disculpa, aún no aprendo el significado de ${item}.`);
             console.log("¡Pero pronto lo aprendere para poder ayudarte mejor!");
         }
     }
 ];
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 module.exports = patternDict;
