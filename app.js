@@ -21,7 +21,7 @@ rl.on('line', reply => {
             case 'Introduccion':
                 setTimeout(function () {
                     rl.prompt();
-                }, 1050);
+                }, 3050);
             case 'Busqueda' :
                 data.phrase(data.entities[2]);
                 break;
