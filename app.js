@@ -20,8 +20,8 @@ rl.on('line', reply => {
                 rl.prompt();
                 break;
             case 'Busqueda' :
-                console.log(data.entities[3]);
-                data.phrase(data.entities[3]);
+                //console.log(data.entities[2]);
+                data.phrase(data.entities[2]);
                 rl.prompt();
                 break;
             case 'Terminar' :
@@ -29,7 +29,8 @@ rl.on('line', reply => {
                 process.exit(0);
                 break;
             default:
-
+                console.log(`Disculpa, aún no aprendo el significado de ${reply}.`);
+                console.log("¡Pero pronto lo aprendere para poder ayudarte mejor!");
                 rl.prompt();
                 break;
         }
