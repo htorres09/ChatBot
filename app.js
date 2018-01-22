@@ -13,7 +13,6 @@ rl.prompt();
 rl.on('line', reply => {
     matcher(reply, data =>{
         var i = 0;
-        //for(i in data.entities){ console.log(i, data.entities[i]); }
         for(i in data.entities){ console.log(i, data.entities[i]); }
         switch(data.intent){
             case 'Saludo':
@@ -21,13 +20,8 @@ rl.on('line', reply => {
                 rl.prompt();
                 break;
             case 'Busqueda' :
-<<<<<<< HEAD
                 //console.log(data.entities[2]);
                 data.phrase(data.entities[2]);
-=======
-                console.log(data.entities.titulo);
-                console.log(data.entities.author);
->>>>>>> 2767485cf39d969ead8430e0c155ab8604736bae
                 rl.prompt();
                 break;
             case 'Terminar' :
