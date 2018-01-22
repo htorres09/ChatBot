@@ -6,6 +6,9 @@ const server = Restify.createServer({
 });
 const PORT = process.env.port || 3000;
 
+server.use(Restify.jsonp());
+server.use(Restify.bodyParser())
+
 // Tokens
 const config = require('./config');
 
@@ -13,9 +16,9 @@ const config = require('./config');
 const FBeamer = require('./fbeamer');
 const f = new FBeamer(config);
 
-// Prueba
+// Registrar Webhooks
 server.get('/', (req, res, next) => {
-    res.send("Hola");
+    f.registerHook(req, res);
     return next();
 });
 
