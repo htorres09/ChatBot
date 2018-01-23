@@ -1,6 +1,7 @@
 'use strict';
 /* API Server */
 const Restify = require('restify');
+const request = require('request');
 const server = Restify.createServer({
     name: 'TigreBotMessenger'
 });
@@ -26,8 +27,7 @@ server.get('/', (req, res, next) => {
 server.post('/', (req, res, next) => {
     f.incoming(req, res, msg =>{
         //procesar los mensajes
-        console.log(req.query);        
-        console.log(msg);
+        f.txt(msg.sender, `${msg.message.text}, mi nombre es Tigrebot`);
     });
     return next();
 });
