@@ -26,6 +26,7 @@ server.get('/', (req, res, next) => {
 server.post('/', (req, res, next) => {
     f.incoming(req, res, msg =>{
         //procesar los mensajes
+        console.log(req.query);        
         console.log(msg);
     });
     return next();

@@ -19,7 +19,10 @@ class FBeamer{
         // Sí req.query.hub.mode es 'subscribe' y req.query.hub.VERIFY_TOKEN
         // es el mismo que this.VERIFY_TOKEN entonces manda un HTTP status 200
         // y req.query.hub.challenge
-        let {mode, verify_token, challenge} = req.query.hub;
+        var mode = req.query['hub.mode'];
+        var verify_token = req.query['hub.verify_token'];
+        var challenge = req.query['hub.challenge'];
+
         if(mode === 'subscribe' && verify_token === this.VERIFY_TOKEN){
             return res.end(challenge);
         } else {
@@ -27,6 +30,14 @@ class FBeamer{
             return res.status(403).end();
         }
     }
+
+    /*subscribe() {
+        request({
+            uri: 'https://graph.facebook.com/v2.11/me/subscribed_apps',
+
+        });
+    }*/
+
 
     incoming(req, res){
         // Extraer el cuerpo del POST request
