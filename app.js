@@ -22,6 +22,9 @@ rl.on('line', reply => {
                 }, 3050);
             case 'Busqueda' :
                 data.phrase(data.entities[2]);
+                setTimeout(function () {
+                    rl.prompt();
+                }, 50);
                 break;
             case 'Terminar' :
                 data.phrase(data.entities.Terminar);
